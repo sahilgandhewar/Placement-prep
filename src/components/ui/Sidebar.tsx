@@ -8,6 +8,7 @@ import {
   ChevronLeft, ChevronRight, Shield, Brain, Star
 } from 'lucide-react'
 import toast from 'react-hot-toast'
+import { signOut } from 'next-auth/react'
 
 const navItems = [
   { icon: LayoutDashboard, label: 'Dashboard', href: '/dashboard' },
@@ -31,10 +32,11 @@ export default function Sidebar() {
     if (u) setUser(JSON.parse(u))
   }, [])
 
-  const logout = () => {
+  const logout = async () => {
     localStorage.removeItem('pp_user')
     localStorage.removeItem('pp_token')
     toast.success('Logged out')
+    await signOut({ redirect: false })
     window.location.href = '/'
   }
 
