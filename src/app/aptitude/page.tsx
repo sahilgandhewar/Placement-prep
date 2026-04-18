@@ -240,7 +240,7 @@ export default function AptitudePage() {
   return (
     <div>
       <Topbar title={`Online Test — ${section} Preparation`} />
-      <div style={{ display: 'flex', gap: 0, padding: '24px', gap: '20px', height: 'calc(100vh - 72px)', overflow: 'hidden' }}>
+      <div style={{ display: 'flex', padding: '24px', gap: '20px', height: 'calc(100vh - 72px)', overflow: 'hidden' }}>
         
         {/* Main Question */}
         <div style={{ flex: 1, display: 'flex', flexDirection: 'column', gap: '16px', overflow: 'auto' }}>

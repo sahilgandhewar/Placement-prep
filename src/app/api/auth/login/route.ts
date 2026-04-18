@@ -14,7 +14,7 @@ export async function POST(req: NextRequest) {
 
     await connectDB()
 
-    const user = await User.findOne({ email: email.toLowerCase() })
+    const user = await (User as any).findOne({ email: email.toLowerCase() })
     if (!user) {
       return NextResponse.json({ success: false, message: 'Invalid email or password' }, { status: 401 })
     }

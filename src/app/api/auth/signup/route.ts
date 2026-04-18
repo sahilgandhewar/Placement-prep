@@ -17,13 +17,13 @@ export async function POST(req: NextRequest) {
 
     await connectDB()
 
-    const existing = await User.findOne({ email: email.toLowerCase() })
+    const existing = await (User as any).findOne({ email: email.toLowerCase() })
     if (existing) {
       return NextResponse.json({ success: false, message: 'Email already registered' }, { status: 409 })
     }
 
     const hashed = await bcrypt.hash(password, 12)
-    const user = await User.create({
+    const user = await (User as any).create({
       name, email: email.toLowerCase(), password: hashed, college: college || '', role: role || 'student'
     })
 
